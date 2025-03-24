@@ -7,7 +7,7 @@ import { BadgeDollarSign, Plus } from "lucide-react";
 export const Header: React.FC = () => {
   return (
     <>
-      <header className="sticky top-0 flex p-3 justify-between">
+      <header className="sticky top-0 flex p-3 justify-between items-center">
         <Button variant="ghost" asChild>
           <div>
             <BadgeDollarSign />
