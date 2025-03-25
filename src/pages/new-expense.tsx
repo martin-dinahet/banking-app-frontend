@@ -18,20 +18,9 @@ import { SelectTrigger } from "@/components/ui/select";
 import { SelectValue } from "@/components/ui/select";
 import { SelectContent } from "@/components/ui/select";
 import { SelectItem } from "@/components/ui/select";
+import { categories } from "@/lib/categories";
 
 import { toast } from "sonner";
-
-const categories = [
-  { value: "food", label: "🍽️ Food & Dining" },
-  { value: "transportation", label: "🚗 Transportation" },
-  { value: "utilities", label: "💡 Utilities" },
-  { value: "entertainment", label: "🎮 Entertainment" },
-  { value: "shopping", label: "🛍️ Shopping" },
-  { value: "health", label: "🏥 Healthcare" },
-  { value: "travel", label: "✈️ Travel" },
-  { value: "education", label: "📚 Education" },
-  { value: "other", label: "📦 Other" },
-];
 
 export const NewExpense: React.FC = () => {
   const [expenses, setExpenses] = React.useState<Array<Expense>>([]);
