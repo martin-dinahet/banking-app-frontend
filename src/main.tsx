@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Routes } from "react-router-dom";
 import { Route } from "react-router-dom";
 import { Index } from "@/pages/index";
+import { NewExpense } from "@/pages/new-expense";
 import { MainLayout } from "@/layouts/main-layout";
 
 import "./index.css";
@@ -14,6 +15,7 @@ createRoot(document.getElementById("root")!).render(
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Index />} />
+          <Route path="/new-expense" element={<NewExpense />} />
         </Route>
       </Routes>
     </BrowserRouter>
