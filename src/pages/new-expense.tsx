@@ -9,16 +9,35 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Expense } from "@/lib/expenses";
-import { DollarSign } from "lucide-react";
+import { DollarSign, Home, Wallet } from "lucide-react";
 import { PlusCircle } from "lucide-react";
 import { Tag } from "lucide-react";
-import { toast } from "sonner";
 import { NavLink } from "react-router-dom";
+import { Select } from "@/components/ui/select";
+import { SelectTrigger } from "@/components/ui/select";
+import { SelectValue } from "@/components/ui/select";
+import { SelectContent } from "@/components/ui/select";
+import { SelectItem } from "@/components/ui/select";
+
+import { toast } from "sonner";
+
+const categories = [
+  { value: "food", label: "🍽️ Food & Dining" },
+  { value: "transportation", label: "🚗 Transportation" },
+  { value: "utilities", label: "💡 Utilities" },
+  { value: "entertainment", label: "🎮 Entertainment" },
+  { value: "shopping", label: "🛍️ Shopping" },
+  { value: "health", label: "🏥 Healthcare" },
+  { value: "travel", label: "✈️ Travel" },
+  { value: "education", label: "📚 Education" },
+  { value: "other", label: "📦 Other" },
+];
 
 export const NewExpense: React.FC = () => {
   const [expenses, setExpenses] = React.useState<Array<Expense>>([]);
   const [amount, setAmount] = React.useState<string>("");
   const [description, setDescription] = React.useState<string>("");
+  const [category, setCategory] = React.useState<string>("");
 
   React.useEffect(() => {
     const savedExpenses = localStorage.getItem("expenses");
@@ -28,20 +47,26 @@ export const NewExpense: React.FC = () => {
   }, []);
 
   const saveExpense = () => {
-    if (!amount || !description) return;
+    if (!amount || !description || !category) {
+      toast.error("Please fill in all fields");
+      return;
+    }
     const newExpense: Expense = {
       id: crypto.randomUUID(),
       amount: parseFloat(amount),
       description: description,
+      category: category,
       date: new Date().toISOString(),
     };
     setExpenses([...expenses, newExpense]);
     localStorage.setItem("expenses", JSON.stringify(expenses));
+    const selectedCategory = categories.find((c) => c.value === category);
     toast.success("Expense added successfully", {
-      description: `$${amount} - ${description}`,
+      description: `${selectedCategory?.label.split(" ")[0]}$${amount} - ${description}`,
     });
     setAmount("");
     setDescription("");
+    setCategory("");
   };
 
   return (
@@ -70,6 +95,21 @@ export const NewExpense: React.FC = () => {
               </div>
             </div>
             <div className="space-y-2">
+              <Label htmlFor="category">Category</Label>
+              <Select value={category} onValueChange={setCategory}>
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select a category" />
+                </SelectTrigger>
+                <SelectContent>
+                  {categories.map((category) => (
+                    <SelectItem key={category.value} value={category.value}>
+                      {category.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="space-y-2">
               <Label htmlFor="description">Description</Label>
               <div className="relative">
                 <Tag className="absolute left-3 top-2.5 h-5 w-5 text-muted-foreground" />
@@ -89,10 +129,16 @@ export const NewExpense: React.FC = () => {
           </CardContent>
           <CardFooter className="pt-4 flex gap-4">
             <Button variant="default" asChild>
-              <NavLink to="/expenses">My expenses</NavLink>
+              <div>
+                <Wallet />
+                <NavLink to="/expenses">My expenses</NavLink>
+              </div>
             </Button>
             <Button variant="secondary" asChild>
-              <NavLink to="/">Home</NavLink>
+              <div>
+                <Home />
+                <NavLink to="/">Home</NavLink>
+              </div>
             </Button>
           </CardFooter>
         </Card>
