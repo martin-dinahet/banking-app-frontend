@@ -1,93 +1,63 @@
-# React Quickstart ⚡
+# Banking App
 
-A minimal and customizable React starter template to kickstart your projects with best practices.
+A simple banking app that allows users to manage their expenses. Built with modern tools and technologies, this app helps users track their finances, and all data is stored locally in the browser's local storage.
+
+## Technologies Used
+
+- **Vite** - A fast build tool for modern web development.
+- **React** - A JavaScript library for building user interfaces.
+- **Tailwind CSS** - A utility-first CSS framework for creating custom designs without leaving your HTML.
+- **TypeScript** - A statically typed superset of JavaScript for better development and debugging.
+- **ShadCN** - A component library for UI elements.
+- **React Router DOM** - A routing library for React to handle navigation and URLs.
+- **PNPM** - A fast, disk space-efficient package manager.
+- **Docker** - Containerized environment for easy deployment.
 
 ## Features
 
-- Vite - Fast build and development environment
-- React - Modern UI library for building interactive user interfaces
-- TypeScript - Stringly typed for better development experience
-- Tailwind CSS - Utility-first CSS framework
-- Eslint & Prettier - Code quality and formatting enforcement
-- React Router - Client-side routing made easy
+- **Expense Management**: Track and manage your expenses.
+- **Local Storage**: Stores your expense data in the browser’s local storage.
+- **Responsive UI**: Built with Tailwind CSS for a clean, responsive design.
+- **Routing**: Navigate between different views using React Router DOM.
 
-## Getting started
+## Installation
 
-### Prerequisites
-
-- [Node JS](https://nodejs.org/)
-- [pnpm](https://pnpm.io/)
-
-### Installation
-
-#### Clone the repository
-
+### 1. Clone the repository
 ```sh
-git clone https://github.com/martin-dinahet/react-quickstart.git
-cd react-quickstart
+git clone https://github.com/your-username/banking-app.git
+cd banking-app
 ```
 
-#### Install dependencies
+### 2. Install dependencies with PNPM
 
 ```sh
 pnpm install
 ```
 
-#### Development
-
-Start the development server
+### 3. Start the development server
 
 ```sh
 pnpm dev
 ```
 
-Then, open [localhost:5173](http://localhost:5173) in your browser.
+## Docker
 
-#### Build for production
+To run the app using Docker, follow these steps:
 
-```sh
-pnpm build
-```
-
-#### Linting & Formatting
-
-Run ESLint to check linting errors:
+### 1. Build the docker image
 
 ```sh
-pnpm lint
+docker build -t banking-app .
 ```
 
-Format code with Prettier:
-
-```sh
-pnpm format
-```
-
-## Directory structure
+### 2. Run the docker container
 
 ```
-🗁 .
-├── 🗋 eslint.config.js
-├── 🗋 index.html
-├── 🗋 package.json
-├── 🗋 pnpm-lock.yaml
-├── 🗋 readme.md
-├── 🗋 tsconfig.app.json
-├── 🗋 tsconfig.json
-├── 🗋 tsconfig.node.json
-├── 🗋 vite.config.ts
-├── 🗁 public
-│   └── 🗋 favicon.svg
-└── 🗁 src
-    ├── 🗋 index.css
-    ├── 🗋 main.tsx
-    ├── 🗋 vite-env.d.ts
-    ├── 🗁 components
-    │   └── 🗋 example-component.tsx
-    ├── 🗁 layouts
-    │   └── 🗋 main-layout.tsx
-    ├── 🗁 lib
-    │   └── 🗋 utils.ts
-    └── 🗁 pages
-        └── 🗋 index.tsx
+docker run -p 3000:3000 banking-app
 ```
+
+Visit `http://localhost:3000` to view the app.
+
+## Contributing
+
+Feel free to fork the repository, open issues, and submit pull requests. Contributions are welcome!
