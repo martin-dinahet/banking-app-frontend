@@ -7,6 +7,7 @@ import { CardDescription } from "@/components/ui/card";
 import { CardContent } from "@/components/ui/card";
 import { CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { NavLink } from "react-router-dom";
 import { Wallet } from "lucide-react";
 import { Plus } from "lucide-react";
 
@@ -25,18 +26,16 @@ export const Index: React.FC = () => {
             actual money). It’s simple, fast, and works like a charm… most of the time.
           </CardContent>
           <CardFooter className="flex gap-4">
-            {/* TODO replace this with the "New Expense" component */}
             <Button variant="default" asChild>
-              <div>
+              <NavLink to="/new-expense">
                 <Plus /> New Expense
-              </div>
+              </NavLink>
             </Button>
-            {/* TODO replace this with "My Expenses" component*/}
             <Button variant="secondary" asChild>
-              <div>
+              <NavLink to="/expenses">
                 <Wallet />
                 My Expenses
-              </div>
+              </NavLink>
             </Button>
           </CardFooter>
         </Card>
