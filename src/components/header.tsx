@@ -16,7 +16,7 @@ export const Header: React.FC = () => {
             </NavLink>
           </div>
         </Button>
-        <div className="flex gap-4">
+        <div className="flex gap-4 items-center">
           <Button variant="default" asChild>
             <NavLink to="/new-expense">
               <Plus /> New Expense
