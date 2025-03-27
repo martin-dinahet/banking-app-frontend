@@ -5,8 +5,8 @@ import { Routes } from "react-router-dom";
 import { Route } from "react-router-dom";
 import { Index } from "@/pages/index";
 import { NewExpense } from "@/pages/new-expense";
+import { ExpenseList } from "@/pages/expenses";
 import { MainLayout } from "@/layouts/main-layout";
-import { ExpenseList } from "./pages/expenses";
 
 import "./index.css";
 

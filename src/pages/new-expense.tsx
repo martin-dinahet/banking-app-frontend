@@ -35,6 +35,10 @@ export const NewExpense: React.FC = () => {
     }
   }, []);
 
+  React.useEffect(() => {
+    localStorage.setItem("expenses", JSON.stringify(expenses));
+  }, [expenses]);
+
   const saveExpense = () => {
     if (!amount || !description || !category) {
       toast.error("Please fill in all fields");
@@ -43,12 +47,10 @@ export const NewExpense: React.FC = () => {
     const newExpense: Expense = {
       id: crypto.randomUUID(),
       amount: parseFloat(amount),
-      description: description,
-      category: category,
-      date: new Date().toISOString(),
+      description,
+      category,
     };
-    setExpenses([...expenses, newExpense]);
-    localStorage.setItem("expenses", JSON.stringify(expenses));
+    setExpenses((prevExpenses) => [...prevExpenses, newExpense]);
     const selectedCategory = categories.find((c) => c.value === category);
     toast.success("Expense added successfully", {
       description: `${selectedCategory?.label.split(" ")[0]}$${amount} - ${description}`,

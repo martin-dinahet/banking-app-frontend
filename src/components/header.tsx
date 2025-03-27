@@ -17,11 +17,10 @@ export const Header: React.FC = () => {
           </div>
         </Button>
         <div>
-          {/* TODO replace this with the "New Expense" component */}
           <Button variant="default" asChild>
-            <div>
+            <NavLink to="/new-expense">
               <Plus /> New Expense
-            </div>
+            </NavLink>
           </Button>
           <ThemeToggle />
         </div>
