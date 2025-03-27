@@ -47,7 +47,7 @@ To run the app using Docker, follow these steps:
 ### 1. Build the docker image
 
 ```sh
-docker build -t banking-app .
+docker build . -t banking-app
 ```
 
 ### 2. Run the docker container
