@@ -24,8 +24,8 @@ A simple banking app that allows users to manage their expenses. Built with mode
 
 ### 1. Clone the repository
 ```sh
-git clone https://github.com/your-username/banking-app.git
-cd banking-app
+git clone https://github.com/martin-dinahet/banking-app-frontend.git
+cd banking-app-frontend
 ```
 
 ### 2. Install dependencies with PNPM
