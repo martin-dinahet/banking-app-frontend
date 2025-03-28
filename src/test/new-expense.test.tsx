@@ -4,17 +4,17 @@ import { render } from "@testing-library/react";
 
 import { MemoryRouter } from "react-router-dom";
 
-import { Header } from "@/components/header";
+import { NewExpense } from "@/pages/new-expense";
 
 import { describe } from "vitest";
 import { it } from "vitest";
 import { expect } from "vitest";
 
-describe("header component", () => {
+describe("new expense page", () => {
   it("renders without crashing", () => {
     render(
       <MemoryRouter>
-        <Header />
+        <NewExpense />
       </MemoryRouter>,
     );
     expect(true).toBe(true);

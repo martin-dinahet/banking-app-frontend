@@ -4,17 +4,17 @@ import { render } from "@testing-library/react";
 
 import { MemoryRouter } from "react-router-dom";
 
-import { Header } from "@/components/header";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 import { describe } from "vitest";
 import { it } from "vitest";
 import { expect } from "vitest";
 
-describe("header component", () => {
+describe("theme toggle component", () => {
   it("renders without crashing", () => {
     render(
       <MemoryRouter>
-        <Header />
+        <ThemeToggle />
       </MemoryRouter>,
     );
     expect(true).toBe(true);
